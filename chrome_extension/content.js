@@ -38,6 +38,7 @@ function requestMakeHappy(elements, positiveValueRatio) {
         if (happyMessage) {
           // その要素のテキストをhappyMessageのoutput_messageに変更
           element.textContent = happyMessage.happy_message;
+
           // ポジティブ度をメッセージの横に小さく表示
           const positiveValue = document.createElement("span");
           positiveValue.textContent = `(ポジティブ度: ${positiveValueRatio})`;
@@ -90,7 +91,7 @@ function processMakeHappy(positiveValueRatio) {
       const messages = Array.from(chunk).map((element) => element.textContent);
       console.debug("requestMakeHappy", messages);
       // デバッグ用
-    }, i * 3000);
+    }, i * 5000);
   }
 }
 
