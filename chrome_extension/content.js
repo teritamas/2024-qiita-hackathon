@@ -17,36 +17,39 @@ function requestMakeHappy(elements) {
   const messages = Array.from(elements).map((element) => element.textContent);
   $.ajax({
     ...settings,
-    data: JSON.stringify({ input_messages: messages }),
-  }).done(function (response) {
-    const happyMessages = response.results;
+    data: JSON.stringify({
+      input_messages: messages,
+    }),
+  })
+    .done(function (response) {
+      const happyMessages = response.results;
 
-    // 変更対象となるすべての要素に対して処理を行う
-    elements.forEach((element) => {
-      let currentValue = element.textContent;
-      // happyMessagesの各要素のうち、input_messageが同じものを取得
-      const happyMessage = happyMessages.find(
-        (happyMessage) => happyMessage.input_message === currentValue
-      );
-      if (happyMessage) {
-        // その要素のテキストをhappyMessageのoutput_messageに変更
-        element.textContent = happyMessage.happy_message;
-        // 元のメッセージを小さい文字で表示
-        const originalMessage = document.createElement("details");
-        const summary = document.createElement("summary");
-        summary.textContent = "元のメッセージを表示";
-        originalMessage.textContent = currentValue;
-        originalMessage.style.fontSize = "small";
-        originalMessage.appendChild(summary);
-        element.appendChild(originalMessage);
-      }
+      // 変更対象となるすべての要素に対して処理を行う
+      elements.forEach((element) => {
+        let currentValue = element.textContent;
+        // happyMessagesの各要素のうち、input_messageが同じものを取得
+        const happyMessage = happyMessages.find(
+          (happyMessage) => happyMessage.input_message === currentValue
+        );
+        if (happyMessage) {
+          // その要素のテキストをhappyMessageのoutput_messageに変更
+          element.textContent = happyMessage.happy_message;
+          // 元のメッセージを小さい文字で表示
+          const originalMessage = document.createElement("details");
+          const summary = document.createElement("summary");
+          summary.textContent = "元のメッセージを表示";
+          originalMessage.textContent = currentValue;
+          originalMessage.style.fontSize = "small";
+          originalMessage.appendChild(summary);
+          element.appendChild(originalMessage);
+        }
+      });
+      setTimeout(hideLoader, 2000);
+      return happyMessages;
+    })
+    .fail((jqXHR, textStatus, errorThrown) => {
+      console.log("fail", jqXHR.status);
     });
-    setTimeout(hideLoader, 2000);
-    return happyMessages;
-  })
-  .fail((jqXHR, textStatus, errorThrown) => {
-    console.log('fail', jqXHR.status);
-  })
 }
 
 /**
@@ -69,32 +72,31 @@ addEventListener("load", function () {
   setTimeout(showLoader, 2000);
 });
 
-
 /**
  * ボタンが押されたら
  * Slackのメッセージを取得し、ハッピーな文章に置き換える
  */
-chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
-    if (message.action === 'executeFunction') {
-      // ここに実行したい関数を記述します
-      processMakeHappy();
-      showLoader();
-    }
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+  if (message.action === "executeFunction") {
+    // ここに実行したい関数を記述します
+    processMakeHappy();
+    showLoader();
+  }
 });
 
 // Function to show loader
 function showLoader() {
-    document.querySelector(".loader-box").style.display = "block";
+  document.querySelector(".loader-box").style.display = "block";
 }
 
 // Function to hide loader
 function hideLoader() {
-    document.querySelector(".loader-box").style.display = "none";
+  document.querySelector(".loader-box").style.display = "none";
 }
 
 function setLoading() {
-    var style = document.createElement("style");
-    style.innerHTML = `
+  var style = document.createElement("style");
+  style.innerHTML = `
         /* CSS styles */
         .loader-box {
             display: none; /* Initially hidden */
@@ -162,25 +164,25 @@ function setLoading() {
             animation-delay: 0.60s;
         }
     `;
-    
-    // Append style element to head
-    document.head.appendChild(style);
-    
-    // Create loader elements
-    var loaderBox = document.createElement("div");
-    loaderBox.classList.add("loader-box");
-    
-    var loader = document.createElement("div");
-    loader.classList.add("loader");
-    
-    for (var i = 0; i < 9; i++) {
-        var div = document.createElement("div");
-        var span = document.createElement("span");
-        span.classList.add("load-span");
-        div.appendChild(span);
-        loader.appendChild(div);
-    }
 
-    loaderBox.appendChild(loader);
-    document.body.appendChild(loaderBox);
+  // Append style element to head
+  document.head.appendChild(style);
+
+  // Create loader elements
+  var loaderBox = document.createElement("div");
+  loaderBox.classList.add("loader-box");
+
+  var loader = document.createElement("div");
+  loader.classList.add("loader");
+
+  for (var i = 0; i < 9; i++) {
+    var div = document.createElement("div");
+    var span = document.createElement("span");
+    span.classList.add("load-span");
+    div.appendChild(span);
+    loader.appendChild(div);
+  }
+
+  loaderBox.appendChild(loader);
+  document.body.appendChild(loaderBox);
 }
