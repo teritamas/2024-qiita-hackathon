@@ -920,42 +920,42 @@ input[type=range]:focus::-ms-fill-upper {
 .button div {
     display: flex;
 }
-.button div span {
+.button div .load-span {
     display: block;
     backface-visibility: hidden;
     font-style: normal;
 }
-.button div span:nth-child(1) {
+.button div .load-span:nth-child(1) {
     --d: 0.05s;
 }
-.button div span:nth-child(2) {
+.button div .load-span:nth-child(2) {
     --d: 0.1s;
 }
-.button div span:nth-child(3) {
+.button div .load-span:nth-child(3) {
     --d: 0.15s;
 }
-.button div span:nth-child(4) {
+.button div .load-span:nth-child(4) {
     --d: 0.2s;
 }
-.button div span:nth-child(5) {
+.button div .load-span:nth-child(5) {
     --d: 0.25s;
 }
-.button div span:nth-child(6) {
+.button div .load-span:nth-child(6) {
     --d: 0.3s;
 }
-.button div span:nth-child(7) {
+.button div .load-span:nth-child(7) {
     --d: 0.35s;
 }
-.button div span:nth-child(8) {
+.button div .load-span:nth-child(8) {
     --d: 0.4s;
 }
-.button div span:nth-child(9) {
+.button div .load-span:nth-child(9) {
     --d: 0.45s;
 }
-.button div span:nth-child(10) {
+.button div .load-span:nth-child(10) {
     --d: 0.5s;
 }
-.button div span:nth-child(11) {
+.button div .load-span:nth-child(11) {
     --d: 0.55s;
 }
 .button:hover {
@@ -964,7 +964,7 @@ input[type=range]:focus::-ms-fill-upper {
     --move: -4px;
     --shadow-active: 0 3px 1px rgba(0, 0, 0, .2);
 }
-.button:hover span {
+.button:hover .load-span {
     animation: move var(--duration) linear var(--d);
 }
 .button.smoke {
@@ -972,7 +972,7 @@ input[type=range]:focus::-ms-fill-upper {
     --move-y: -8px;
     --blur: 4px;
 }
-.button.smoke:hover span {
+.button.smoke:hover .load-span {
     --duration: 1s;
     animation: smoke var(--duration) linear var(--d);
 }
@@ -982,7 +982,7 @@ input[type=range]:focus::-ms-fill-upper {
     --skew-fast: 40deg;
     --skew-bounce: -12px;
 }
-.button.drive:hover span {
+.button.drive:hover .load-span {
     --duration: 1s;
     transform-origin: 50% 100%;
     animation: drive var(--duration) linear var(--d);
