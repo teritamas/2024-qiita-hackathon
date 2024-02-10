@@ -1,17 +1,14 @@
 const settings = {
   async: true,
   crossDomain: true,
-  // url: "https://happy-world-api-ez5q3zuvrq-uc.a.run.app/make_happy",
-  url: "http://127.0.0.1:8000/make_happy",
+  url: "https://happy-world-api-ez5q3zuvrq-uc.a.run.app/make_happy",
+  // url: "http://127.0.0.1:8000/make_happy",
   method: "POST",
   headers: {
     accept: "application/json",
     "Content-type": "application/json",
   },
 };
-
-// 初期設定
-const config = { childList: true, subtree: true };
 
 /**
  * Slackのメッセージを取得し、ハッピーな文章に置き換える
@@ -55,5 +52,6 @@ function processMakeHappy() {
 }
 
 addEventListener("load", function () {
-  processMakeHappy();
+  // 2秒待ってから処理を開始
+  setTimeout(processMakeHappy, 2000);
 });
