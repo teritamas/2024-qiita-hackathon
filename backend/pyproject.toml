@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "backend"
-version = "0.1.2"
+version = "0.1.3"
 description = ""
 authors = ["sey323 <sey323_nm@yahoo.co.jp>"]
 readme = "README.md"
