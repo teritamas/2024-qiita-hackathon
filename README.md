@@ -9,6 +9,10 @@
 
 ポジティブジェネレーターは、Slack のメッセージをすべてポジティブな言葉に変えてくれる、Chrome 拡張機能です。
 
+本アプリケーションの操作方法や概要については下記の URL を参照してください
+
+- [ポジティブジェネレーター(Canva スライドへのリンク)](https://www.canva.com/design/DAF8ZOD03fU/QH3mN1B03IUZFDjM36NLeQ/view?utm_content=DAF8ZOD03fU&utm_campaign=designshare&utm_medium=link&utm_source=editor)
+
 ## 全体構成
 
 全体構成は以下の通りです。
