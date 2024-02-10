@@ -65,13 +65,6 @@ function processMakeHappy() {
   const happyMessages = requestMakeHappy(elements);
 }
 
-addEventListener("load", function () {
-  // 2秒待ってから処理を開始
-  setTimeout(processMakeHappy, 2000);
-  setTimeout(setLoading, 2000);
-  setTimeout(showLoader, 2000);
-});
-
 /**
  * ボタンが押されたら
  * Slackのメッセージを取得し、ハッピーな文章に置き換える
