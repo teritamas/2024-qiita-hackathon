@@ -82,7 +82,7 @@ function processMakeHappy(positiveValueRatio) {
   });
 
   // 2件ずつ5秒ごとにrequestMakeHappyリクエストを送信
-  const chunkSize = 2;
+  const chunkSize = 5;
   for (let i = 0; i < elements.length; i += chunkSize) {
     // slice以外でchunk作成
     const chunk = Array.from(elements).slice(i, i + chunkSize);
