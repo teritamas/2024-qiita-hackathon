@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "happy-world"
+name = "backend"
 version = "0.1.0"
 description = ""
 authors = ["sey323 <sey323_nm@yahoo.co.jp>"]
@@ -8,9 +8,10 @@ packages = [{include = "happy_world"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-langchain = "^0.1.6"
 uvicorn = {extras = ["standard"], version = "^0.27.0.post1"}
 fastapi = "^0.109.2"
+python-dotenv = "^1.0.1"
+openai = "^1.12.0"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -20,3 +21,6 @@ flake8 = "^7.0.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 79
