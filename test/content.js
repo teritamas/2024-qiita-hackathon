@@ -11,17 +11,10 @@ const settings = {
 };
 
 /**
- * Slackのメッセージを取得し、ハッピーな文章に置き換える
+ * APIリクエストを送信し、ハッピーな文章に置き換える
  */
-function processMakeHappy() {
-  // 変更があった場合に一致する全ての要素に対してリクエストを行う
-  const elements = document.querySelectorAll(".p-rich_text_section");
-  if (elements.length === 0) return;
-  console.log("変更対象:", elements.length, "件");
-
-  // それぞれの要素のテキストを取得
+function requestMakeHappy(elements) {
   const messages = Array.from(elements).map((element) => element.textContent);
-
   $.ajax({
     ...settings,
     data: JSON.stringify({ input_messages: messages }),
@@ -48,7 +41,21 @@ function processMakeHappy() {
         element.appendChild(originalMessage);
       }
     });
+    return happyMessages;
   });
+}
+
+/**
+ * Slackのメッセージを取得し、ハッピーな文章に置き換える
+ */
+function processMakeHappy() {
+  // 変更があった場合に一致する全ての要素に対してリクエストを行う
+  const elements = document.querySelectorAll(".p-rich_text_section");
+  if (elements.length === 0) return;
+  console.log("変更対象:", elements.length, "件");
+
+  // それぞれの要素のテキストを取得
+  const happyMessages = requestMakeHappy(elements);
 }
 
 addEventListener("load", function () {
