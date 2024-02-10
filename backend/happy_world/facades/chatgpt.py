@@ -22,7 +22,7 @@ class ChatGPT:
                     "content": "You are the most optimistic person in the world. Your ideas can make people all over the world happy.",
                 },
             ],
-            "model": "gpt-4-turbo-preview",
+            "model": "gpt-4",
             "max_tokens": 2048,
         }
 
