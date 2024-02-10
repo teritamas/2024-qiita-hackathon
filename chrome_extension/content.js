@@ -1,8 +1,8 @@
 const settings = {
   async: true,
   crossDomain: true,
-  url: "https://happy-world-api-ez5q3zuvrq-uc.a.run.app/make_happy",
-  // url: "http://127.0.0.1:8000/make_happy",
+  // url: "https://happy-world-api-ez5q3zuvrq-uc.a.run.app/make_happy",
+  url: "http://127.0.0.1:8000/make_happy",
   method: "POST",
   headers: {
     accept: "application/json",
@@ -44,12 +44,12 @@ function requestMakeHappy(elements) {
           element.appendChild(originalMessage);
         }
       });
-      setTimeout(hideLoader, 2000);
       return happyMessages;
     })
     .fail((jqXHR, textStatus, errorThrown) => {
       console.log("fail", jqXHR.status);
-    });
+    })
+    .always(() => hideLoader());
 }
 
 /**
