@@ -1,0 +1,1033 @@
+h1 {
+    text-align: center;
+    font-family: 'Darumadrop One', sans-serif;
+    color: #aea9f8;
+    /*color: #ed646d;*/
+    font-size: 3rem;
+}
+body {
+    min-width:400px;
+    background: url('http://thecodeplayer.com/uploads/media/geometry.png');
+    font-family: 'Roboto', Arial;
+    padding: .5rem;
+}
+body .button {
+    margin: 0 12px;
+}
+
+.d-center {
+    display: flex;
+    justify-content: center;
+}
+
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////*/
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 12.5px 0;
+  width: 100%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #cecece;
+  border: 0px solid #000;
+  border-radius: 0px;
+}
+input[type=range]::-webkit-slider-thumb {
+  position: relative;
+  border: 5px solid rgba(255, 255, 255, 0.5);
+  height: 25px;
+  width: 25px;
+  border-radius: 100%;
+  background: #ffcc74;
+  cursor: pointer;
+  z-index: 1;
+  -webkit-appearance: none;
+  margin-top: -10px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #cecece;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #cecece;
+  border: 0px solid #000;
+  border-radius: 0px;
+}
+input[type=range]::-moz-range-thumb {
+  position: relative;
+  border: 5px solid rgba(255, 255, 255, 0.5);
+  height: 25px;
+  width: 25px;
+  border-radius: 100%;
+  background: #ffcc74;
+  cursor: pointer;
+  z-index: 1;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: transparent;
+  border-color: transparent;
+  border-width: 25px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #cecece;
+  border: 0px solid #000;
+  border-radius: 0px;
+}
+input[type=range]::-ms-fill-upper {
+  background: #cecece;
+  border: 0px solid #000;
+  border-radius: 0px;
+}
+input[type=range]::-ms-thumb {
+  position: relative;
+  border: 5px solid rgba(255, 255, 255, 0.5);
+  height: 25px;
+  width: 25px;
+  border-radius: 100%;
+  background: #ffcc74;
+  cursor: pointer;
+  z-index: 1;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #cecece;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #cecece;
+}
+
+/* Custom by @mmt-zinee */
+.range {
+  box-sizing: border-box;
+  position: relative;
+  padding: 0 50px;
+  width: 100%;
+}
+.range[data-value="0"] .label {
+  left: 0%;
+}
+.range[data-value="1"] .label {
+  left: 1%;
+}
+.range[data-value="2"] .label {
+  left: 2%;
+}
+.range[data-value="3"] .label {
+  left: 3%;
+}
+.range[data-value="4"] .label {
+  left: 4%;
+}
+.range[data-value="5"] .label {
+  left: 5%;
+}
+.range[data-value="6"] .label {
+  left: 6%;
+}
+.range[data-value="7"] .label {
+  left: 7%;
+}
+.range[data-value="8"] .label {
+  left: 8%;
+}
+.range[data-value="9"] .label {
+  left: 9%;
+}
+.range[data-value="10"] .label {
+  left: 10%;
+}
+.range[data-value="11"] .label {
+  left: 11%;
+}
+.range[data-value="12"] .label {
+  left: 12%;
+}
+.range[data-value="13"] .label {
+  left: 13%;
+}
+.range[data-value="14"] .label {
+  left: 14%;
+}
+.range[data-value="15"] .label {
+  left: 15%;
+}
+.range[data-value="16"] .label {
+  left: 16%;
+}
+.range[data-value="17"] .label {
+  left: 17%;
+}
+.range[data-value="18"] .label {
+  left: 18%;
+}
+.range[data-value="19"] .label {
+  left: 19%;
+}
+.range[data-value="20"] .label {
+  left: 20%;
+}
+.range[data-value="21"] .label {
+  left: 21%;
+}
+.range[data-value="22"] .label {
+  left: 22%;
+}
+.range[data-value="23"] .label {
+  left: 23%;
+}
+.range[data-value="24"] .label {
+  left: 24%;
+}
+.range[data-value="25"] .label {
+  left: 25%;
+}
+.range[data-value="26"] .label {
+  left: 26%;
+}
+.range[data-value="27"] .label {
+  left: 27%;
+}
+.range[data-value="28"] .label {
+  left: 28%;
+}
+.range[data-value="29"] .label {
+  left: 29%;
+}
+.range[data-value="30"] .label {
+  left: 30%;
+}
+.range[data-value="31"] .label {
+  left: 31%;
+}
+.range[data-value="32"] .label {
+  left: 32%;
+}
+.range[data-value="33"] .label {
+  left: 33%;
+}
+.range[data-value="34"] .label {
+  left: 34%;
+}
+.range[data-value="35"] .label {
+  left: 35%;
+}
+.range[data-value="36"] .label {
+  left: 36%;
+}
+.range[data-value="37"] .label {
+  left: 37%;
+}
+.range[data-value="38"] .label {
+  left: 38%;
+}
+.range[data-value="39"] .label {
+  left: 39%;
+}
+.range[data-value="40"] .label {
+  left: 40%;
+}
+.range[data-value="41"] .label {
+  left: 41%;
+}
+.range[data-value="42"] .label {
+  left: 42%;
+}
+.range[data-value="43"] .label {
+  left: 43%;
+}
+.range[data-value="44"] .label {
+  left: 44%;
+}
+.range[data-value="45"] .label {
+  left: 45%;
+}
+.range[data-value="46"] .label {
+  left: 46%;
+}
+.range[data-value="47"] .label {
+  left: 47%;
+}
+.range[data-value="48"] .label {
+  left: 48%;
+}
+.range[data-value="49"] .label {
+  left: 49%;
+}
+.range[data-value="50"] .label {
+  left: 50%;
+}
+.range[data-value="51"] .label {
+  left: 51%;
+}
+.range[data-value="52"] .label {
+  left: 52%;
+}
+.range[data-value="53"] .label {
+  left: 53%;
+}
+.range[data-value="54"] .label {
+  left: 54%;
+}
+.range[data-value="55"] .label {
+  left: 55%;
+}
+.range[data-value="56"] .label {
+  left: 56%;
+}
+.range[data-value="57"] .label {
+  left: 57%;
+}
+.range[data-value="58"] .label {
+  left: 58%;
+}
+.range[data-value="59"] .label {
+  left: 59%;
+}
+.range[data-value="60"] .label {
+  left: 60%;
+}
+.range[data-value="61"] .label {
+  left: 61%;
+}
+.range[data-value="62"] .label {
+  left: 62%;
+}
+.range[data-value="63"] .label {
+  left: 63%;
+}
+.range[data-value="64"] .label {
+  left: 64%;
+}
+.range[data-value="65"] .label {
+  left: 65%;
+}
+.range[data-value="66"] .label {
+  left: 66%;
+}
+.range[data-value="67"] .label {
+  left: 67%;
+}
+.range[data-value="68"] .label {
+  left: 68%;
+}
+.range[data-value="69"] .label {
+  left: 69%;
+}
+.range[data-value="70"] .label {
+  left: 70%;
+}
+.range[data-value="71"] .label {
+  left: 71%;
+}
+.range[data-value="72"] .label {
+  left: 72%;
+}
+.range[data-value="73"] .label {
+  left: 73%;
+}
+.range[data-value="74"] .label {
+  left: 74%;
+}
+.range[data-value="75"] .label {
+  left: 75%;
+}
+.range[data-value="76"] .label {
+  left: 76%;
+}
+.range[data-value="77"] .label {
+  left: 77%;
+}
+.range[data-value="78"] .label {
+  left: 78%;
+}
+.range[data-value="79"] .label {
+  left: 79%;
+}
+.range[data-value="80"] .label {
+  left: 80%;
+}
+.range[data-value="81"] .label {
+  left: 81%;
+}
+.range[data-value="82"] .label {
+  left: 82%;
+}
+.range[data-value="83"] .label {
+  left: 83%;
+}
+.range[data-value="84"] .label {
+  left: 84%;
+}
+.range[data-value="85"] .label {
+  left: 85%;
+}
+.range[data-value="86"] .label {
+  left: 86%;
+}
+.range[data-value="87"] .label {
+  left: 87%;
+}
+.range[data-value="88"] .label {
+  left: 88%;
+}
+.range[data-value="89"] .label {
+  left: 89%;
+}
+.range[data-value="90"] .label {
+  left: 90%;
+}
+.range[data-value="91"] .label {
+  left: 91%;
+}
+.range[data-value="92"] .label {
+  left: 92%;
+}
+.range[data-value="93"] .label {
+  left: 93%;
+}
+.range[data-value="94"] .label {
+  left: 94%;
+}
+.range[data-value="95"] .label {
+  left: 95%;
+}
+.range[data-value="96"] .label {
+  left: 96%;
+}
+.range[data-value="97"] .label {
+  left: 97%;
+}
+.range[data-value="98"] .label {
+  left: 98%;
+}
+.range[data-value="99"] .label {
+  left: 99%;
+}
+.range[data-value="100"] .label {
+  left: 100%;
+}
+
+.label {
+  position: relative;
+  top: 0;
+  margin-left: -40px;
+  margin-bottom: 20px;
+  width: 80px;
+}
+.label .value {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  z-index: 1;
+}
+.label .drop {
+  box-sizing: content-box;
+  width: 80px;
+  height: 80px;
+  border-radius: 80% 0 55% 50%/55% 0 80% 50%;
+  background: #ffcc74;
+  -webkit-transform: rotateZ(135deg);
+  transform: rotateZ(135deg);
+}
+
+.input-box {
+  position: relative;
+  margin: 0 -12.5px;
+  height: 60px;
+}
+.input-box input[type=range] {
+  display: block;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 60px;
+}
+.input-box .bar {
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  margin: 0 0 -2.5px;
+  height: 5px;
+  background: #ffcc74;
+  z-index: 0;
+}
+.input-box[data-value="0"] .bar {
+  margin-right: 25px;
+  width: calc(0% - 25px / (100/0));
+}
+.input-box[data-value="1"] .bar {
+  margin-right: 25px;
+  width: calc(1% - 25px / (100/1));
+}
+.input-box[data-value="2"] .bar {
+  margin-right: 25px;
+  width: calc(2% - 25px / (100/2));
+}
+.input-box[data-value="3"] .bar {
+  margin-right: 25px;
+  width: calc(3% - 25px / (100/3));
+}
+.input-box[data-value="4"] .bar {
+  margin-right: 25px;
+  width: calc(4% - 25px / (100/4));
+}
+.input-box[data-value="5"] .bar {
+  margin-right: 25px;
+  width: calc(5% - 25px / (100/5));
+}
+.input-box[data-value="6"] .bar {
+  margin-right: 25px;
+  width: calc(6% - 25px / (100/6));
+}
+.input-box[data-value="7"] .bar {
+  margin-right: 25px;
+  width: calc(7% - 25px / (100/7));
+}
+.input-box[data-value="8"] .bar {
+  margin-right: 25px;
+  width: calc(8% - 25px / (100/8));
+}
+.input-box[data-value="9"] .bar {
+  margin-right: 25px;
+  width: calc(9% - 25px / (100/9));
+}
+.input-box[data-value="10"] .bar {
+  margin-right: 25px;
+  width: calc(10% - 25px / (100/10));
+}
+.input-box[data-value="11"] .bar {
+  margin-right: 25px;
+  width: calc(11% - 25px / (100/11));
+}
+.input-box[data-value="12"] .bar {
+  margin-right: 25px;
+  width: calc(12% - 25px / (100/12));
+}
+.input-box[data-value="13"] .bar {
+  margin-right: 25px;
+  width: calc(13% - 25px / (100/13));
+}
+.input-box[data-value="14"] .bar {
+  margin-right: 25px;
+  width: calc(14% - 25px / (100/14));
+}
+.input-box[data-value="15"] .bar {
+  margin-right: 25px;
+  width: calc(15% - 25px / (100/15));
+}
+.input-box[data-value="16"] .bar {
+  margin-right: 25px;
+  width: calc(16% - 25px / (100/16));
+}
+.input-box[data-value="17"] .bar {
+  margin-right: 25px;
+  width: calc(17% - 25px / (100/17));
+}
+.input-box[data-value="18"] .bar {
+  margin-right: 25px;
+  width: calc(18% - 25px / (100/18));
+}
+.input-box[data-value="19"] .bar {
+  margin-right: 25px;
+  width: calc(19% - 25px / (100/19));
+}
+.input-box[data-value="20"] .bar {
+  margin-right: 25px;
+  width: calc(20% - 25px / (100/20));
+}
+.input-box[data-value="21"] .bar {
+  margin-right: 25px;
+  width: calc(21% - 25px / (100/21));
+}
+.input-box[data-value="22"] .bar {
+  margin-right: 25px;
+  width: calc(22% - 25px / (100/22));
+}
+.input-box[data-value="23"] .bar {
+  margin-right: 25px;
+  width: calc(23% - 25px / (100/23));
+}
+.input-box[data-value="24"] .bar {
+  margin-right: 25px;
+  width: calc(24% - 25px / (100/24));
+}
+.input-box[data-value="25"] .bar {
+  margin-right: 25px;
+  width: calc(25% - 25px / (100/25));
+}
+.input-box[data-value="26"] .bar {
+  margin-right: 25px;
+  width: calc(26% - 25px / (100/26));
+}
+.input-box[data-value="27"] .bar {
+  margin-right: 25px;
+  width: calc(27% - 25px / (100/27));
+}
+.input-box[data-value="28"] .bar {
+  margin-right: 25px;
+  width: calc(28% - 25px / (100/28));
+}
+.input-box[data-value="29"] .bar {
+  margin-right: 25px;
+  width: calc(29% - 25px / (100/29));
+}
+.input-box[data-value="30"] .bar {
+  margin-right: 25px;
+  width: calc(30% - 25px / (100/30));
+}
+.input-box[data-value="31"] .bar {
+  margin-right: 25px;
+  width: calc(31% - 25px / (100/31));
+}
+.input-box[data-value="32"] .bar {
+  margin-right: 25px;
+  width: calc(32% - 25px / (100/32));
+}
+.input-box[data-value="33"] .bar {
+  margin-right: 25px;
+  width: calc(33% - 25px / (100/33));
+}
+.input-box[data-value="34"] .bar {
+  margin-right: 25px;
+  width: calc(34% - 25px / (100/34));
+}
+.input-box[data-value="35"] .bar {
+  margin-right: 25px;
+  width: calc(35% - 25px / (100/35));
+}
+.input-box[data-value="36"] .bar {
+  margin-right: 25px;
+  width: calc(36% - 25px / (100/36));
+}
+.input-box[data-value="37"] .bar {
+  margin-right: 25px;
+  width: calc(37% - 25px / (100/37));
+}
+.input-box[data-value="38"] .bar {
+  margin-right: 25px;
+  width: calc(38% - 25px / (100/38));
+}
+.input-box[data-value="39"] .bar {
+  margin-right: 25px;
+  width: calc(39% - 25px / (100/39));
+}
+.input-box[data-value="40"] .bar {
+  margin-right: 25px;
+  width: calc(40% - 25px / (100/40));
+}
+.input-box[data-value="41"] .bar {
+  margin-right: 25px;
+  width: calc(41% - 25px / (100/41));
+}
+.input-box[data-value="42"] .bar {
+  margin-right: 25px;
+  width: calc(42% - 25px / (100/42));
+}
+.input-box[data-value="43"] .bar {
+  margin-right: 25px;
+  width: calc(43% - 25px / (100/43));
+}
+.input-box[data-value="44"] .bar {
+  margin-right: 25px;
+  width: calc(44% - 25px / (100/44));
+}
+.input-box[data-value="45"] .bar {
+  margin-right: 25px;
+  width: calc(45% - 25px / (100/45));
+}
+.input-box[data-value="46"] .bar {
+  margin-right: 25px;
+  width: calc(46% - 25px / (100/46));
+}
+.input-box[data-value="47"] .bar {
+  margin-right: 25px;
+  width: calc(47% - 25px / (100/47));
+}
+.input-box[data-value="48"] .bar {
+  margin-right: 25px;
+  width: calc(48% - 25px / (100/48));
+}
+.input-box[data-value="49"] .bar {
+  margin-right: 25px;
+  width: calc(49% - 25px / (100/49));
+}
+.input-box[data-value="50"] .bar {
+  margin-right: 25px;
+  width: calc(50% - 25px / (100/50));
+}
+.input-box[data-value="51"] .bar {
+  margin-right: 25px;
+  width: calc(51% - 25px / (100/51));
+}
+.input-box[data-value="52"] .bar {
+  margin-right: 25px;
+  width: calc(52% - 25px / (100/52));
+}
+.input-box[data-value="53"] .bar {
+  margin-right: 25px;
+  width: calc(53% - 25px / (100/53));
+}
+.input-box[data-value="54"] .bar {
+  margin-right: 25px;
+  width: calc(54% - 25px / (100/54));
+}
+.input-box[data-value="55"] .bar {
+  margin-right: 25px;
+  width: calc(55% - 25px / (100/55));
+}
+.input-box[data-value="56"] .bar {
+  margin-right: 25px;
+  width: calc(56% - 25px / (100/56));
+}
+.input-box[data-value="57"] .bar {
+  margin-right: 25px;
+  width: calc(57% - 25px / (100/57));
+}
+.input-box[data-value="58"] .bar {
+  margin-right: 25px;
+  width: calc(58% - 25px / (100/58));
+}
+.input-box[data-value="59"] .bar {
+  margin-right: 25px;
+  width: calc(59% - 25px / (100/59));
+}
+.input-box[data-value="60"] .bar {
+  margin-right: 25px;
+  width: calc(60% - 25px / (100/60));
+}
+.input-box[data-value="61"] .bar {
+  margin-right: 25px;
+  width: calc(61% - 25px / (100/61));
+}
+.input-box[data-value="62"] .bar {
+  margin-right: 25px;
+  width: calc(62% - 25px / (100/62));
+}
+.input-box[data-value="63"] .bar {
+  margin-right: 25px;
+  width: calc(63% - 25px / (100/63));
+}
+.input-box[data-value="64"] .bar {
+  margin-right: 25px;
+  width: calc(64% - 25px / (100/64));
+}
+.input-box[data-value="65"] .bar {
+  margin-right: 25px;
+  width: calc(65% - 25px / (100/65));
+}
+.input-box[data-value="66"] .bar {
+  margin-right: 25px;
+  width: calc(66% - 25px / (100/66));
+}
+.input-box[data-value="67"] .bar {
+  margin-right: 25px;
+  width: calc(67% - 25px / (100/67));
+}
+.input-box[data-value="68"] .bar {
+  margin-right: 25px;
+  width: calc(68% - 25px / (100/68));
+}
+.input-box[data-value="69"] .bar {
+  margin-right: 25px;
+  width: calc(69% - 25px / (100/69));
+}
+.input-box[data-value="70"] .bar {
+  margin-right: 25px;
+  width: calc(70% - 25px / (100/70));
+}
+.input-box[data-value="71"] .bar {
+  margin-right: 25px;
+  width: calc(71% - 25px / (100/71));
+}
+.input-box[data-value="72"] .bar {
+  margin-right: 25px;
+  width: calc(72% - 25px / (100/72));
+}
+.input-box[data-value="73"] .bar {
+  margin-right: 25px;
+  width: calc(73% - 25px / (100/73));
+}
+.input-box[data-value="74"] .bar {
+  margin-right: 25px;
+  width: calc(74% - 25px / (100/74));
+}
+.input-box[data-value="75"] .bar {
+  margin-right: 25px;
+  width: calc(75% - 25px / (100/75));
+}
+.input-box[data-value="76"] .bar {
+  margin-right: 25px;
+  width: calc(76% - 25px / (100/76));
+}
+.input-box[data-value="77"] .bar {
+  margin-right: 25px;
+  width: calc(77% - 25px / (100/77));
+}
+.input-box[data-value="78"] .bar {
+  margin-right: 25px;
+  width: calc(78% - 25px / (100/78));
+}
+.input-box[data-value="79"] .bar {
+  margin-right: 25px;
+  width: calc(79% - 25px / (100/79));
+}
+.input-box[data-value="80"] .bar {
+  margin-right: 25px;
+  width: calc(80% - 25px / (100/80));
+}
+.input-box[data-value="81"] .bar {
+  margin-right: 25px;
+  width: calc(81% - 25px / (100/81));
+}
+.input-box[data-value="82"] .bar {
+  margin-right: 25px;
+  width: calc(82% - 25px / (100/82));
+}
+.input-box[data-value="83"] .bar {
+  margin-right: 25px;
+  width: calc(83% - 25px / (100/83));
+}
+.input-box[data-value="84"] .bar {
+  margin-right: 25px;
+  width: calc(84% - 25px / (100/84));
+}
+.input-box[data-value="85"] .bar {
+  margin-right: 25px;
+  width: calc(85% - 25px / (100/85));
+}
+.input-box[data-value="86"] .bar {
+  margin-right: 25px;
+  width: calc(86% - 25px / (100/86));
+}
+.input-box[data-value="87"] .bar {
+  margin-right: 25px;
+  width: calc(87% - 25px / (100/87));
+}
+.input-box[data-value="88"] .bar {
+  margin-right: 25px;
+  width: calc(88% - 25px / (100/88));
+}
+.input-box[data-value="89"] .bar {
+  margin-right: 25px;
+  width: calc(89% - 25px / (100/89));
+}
+.input-box[data-value="90"] .bar {
+  margin-right: 25px;
+  width: calc(90% - 25px / (100/90));
+}
+.input-box[data-value="91"] .bar {
+  margin-right: 25px;
+  width: calc(91% - 25px / (100/91));
+}
+.input-box[data-value="92"] .bar {
+  margin-right: 25px;
+  width: calc(92% - 25px / (100/92));
+}
+.input-box[data-value="93"] .bar {
+  margin-right: 25px;
+  width: calc(93% - 25px / (100/93));
+}
+.input-box[data-value="94"] .bar {
+  margin-right: 25px;
+  width: calc(94% - 25px / (100/94));
+}
+.input-box[data-value="95"] .bar {
+  margin-right: 25px;
+  width: calc(95% - 25px / (100/95));
+}
+.input-box[data-value="96"] .bar {
+  margin-right: 25px;
+  width: calc(96% - 25px / (100/96));
+}
+.input-box[data-value="97"] .bar {
+  margin-right: 25px;
+  width: calc(97% - 25px / (100/97));
+}
+.input-box[data-value="98"] .bar {
+  margin-right: 25px;
+  width: calc(98% - 25px / (100/98));
+}
+.input-box[data-value="99"] .bar {
+  margin-right: 25px;
+  width: calc(99% - 25px / (100/99));
+}
+.input-box[data-value="100"] .bar {
+  margin-right: 25px;
+  width: calc(100% - 25px / (100/100));
+}
+
+/*///////////////////////////////////////////////////////////*/
+
+.button.dark {
+    --background: #2F3545;
+    --shadow: 0 2px 8px -1px rgba(21, 25, 36, 0.32);
+    --shadow-hover: 0 4px 20px -2px rgba(21, 25, 36, 0.5);
+}
+.button.white {
+    --background: #fff;
+    --text: #39bda7;
+    --shadow: 0 2px 8px -1px rgba(18, 22, 33, 0.04);
+    --shadow-hover: 0 4px 20px -2px rgba(18, 22, 33, 0.12);
+}
+.button {
+    --background: #39bda7;
+    --text: #fff;
+    --font-size: 16px;
+    --duration: .5s;
+    --move-hover: -4px;
+    --shadow: 0 2px 8px -1px rgb(45 82 56 / 32%);
+    --shadow-hover: 0 4px 20px -2px rgb(21 85 61 / 50%);
+    padding: 16px 32px;
+    font-family: 'Roboto';
+    font-weight: 500;
+    line-height: var(--font-size);
+    border-radius: 24px;
+    display: block;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: var(--font-size);
+    letter-spacing: .5px;
+    background: var(--background);
+    color: var(--text);
+    box-shadow: var(--shadow);
+    transform: translateY(var(--y));
+    transition: transform var(--duration) ease, box-shadow var(--duration) ease;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+}
+.button div {
+    display: flex;
+}
+.button div span {
+    display: block;
+    backface-visibility: hidden;
+    font-style: normal;
+}
+.button div span:nth-child(1) {
+    --d: 0.05s;
+}
+.button div span:nth-child(2) {
+    --d: 0.1s;
+}
+.button div span:nth-child(3) {
+    --d: 0.15s;
+}
+.button div span:nth-child(4) {
+    --d: 0.2s;
+}
+.button div span:nth-child(5) {
+    --d: 0.25s;
+}
+.button div span:nth-child(6) {
+    --d: 0.3s;
+}
+.button div span:nth-child(7) {
+    --d: 0.35s;
+}
+.button div span:nth-child(8) {
+    --d: 0.4s;
+}
+.button div span:nth-child(9) {
+    --d: 0.45s;
+}
+.button div span:nth-child(10) {
+    --d: 0.5s;
+}
+.button div span:nth-child(11) {
+    --d: 0.55s;
+}
+.button:hover {
+    --y: var(--move-hover);
+    --shadow: var(--shadow-hover);
+    --move: -4px;
+    --shadow-active: 0 3px 1px rgba(0, 0, 0, .2);
+}
+.button:hover span {
+    animation: move var(--duration) linear var(--d);
+}
+.button.smoke {
+    --move: 12px;
+    --move-y: -8px;
+    --blur: 4px;
+}
+.button.smoke:hover span {
+    --duration: 1s;
+    animation: smoke var(--duration) linear var(--d);
+}
+.button.drive {
+    --move: 16px;
+    --skew: 25deg;
+    --skew-fast: 40deg;
+    --skew-bounce: -12px;
+}
+.button.drive:hover span {
+    --duration: 1s;
+    transform-origin: 50% 100%;
+    animation: drive var(--duration) linear var(--d);
+}
+@keyframes move {
+    40% {
+        transform: translateY(var(--move));
+        text-shadow: var(--shadow-active);
+    }
+}
+@keyframes smoke {
+    45%, 55% {
+        filter: blur(var(--blur));
+    }
+    50%, 50.1% {
+        opacity: 0;
+    }
+    25%, 75% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(var(--move)) translateY(var(--move-y));
+    }
+    50.1% {
+        transform: translateX(calc(var(--move) * -1));
+    }
+}
+@keyframes drive {
+    40% {
+        opacity: 1;
+    }
+    55% {
+        transform: skewX(var(--skew)) translateX(var(--move));
+    }
+    56% {
+        transform: skewX(var(--skew-fast)) translateX(calc(var(--move) * -1));
+    }
+    55%, 56% {
+        opacity: 0;
+    }
+    75% {
+        transform: skewX(var(--skew));
+    }
+    85% {
+        transform: skewX(var(--skew-bounce));
+    }
+}
+/*/////////////////////////////////////////////////////////////*/

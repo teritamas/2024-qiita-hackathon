@@ -42,6 +42,12 @@ function requestMakeHappy(elements) {
       }
     });
     return happyMessages;
+  })
+  .fail((jqXHR, textStatus, errorThrown) => {
+    console.log('fail', jqXHR.status);
+  })
+  .always(() => {
+    console.log('always');
   });
 }
 
@@ -61,4 +67,16 @@ function processMakeHappy() {
 addEventListener("load", function () {
   // 2秒待ってから処理を開始
   setTimeout(processMakeHappy, 2000);
+});
+
+
+/**
+ * ボタンが押されたら
+ * Slackのメッセージを取得し、ハッピーな文章に置き換える
+ */
+chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
+    if (message.action === 'executeFunction') {
+      // ここに実行したい関数を記述します
+      processMakeHappy();
+    }
 });
