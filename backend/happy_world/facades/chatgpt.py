@@ -4,6 +4,9 @@ import os
 import re
 from typing import List
 from happy_world.exceptions.convert_exception import ConvertException
+from happy_world.models.cotoha_emotional_score_dto import (
+    CotohaEmotionalScoreDto,
+)
 from happy_world.models.make_happy_response import MakeHappyMessageItem
 from openai import OpenAI
 from openai.types.chat import ChatCompletion
@@ -27,7 +30,9 @@ class ChatGPT:
         }
 
     def make_happy(
-        self, input_messages: List[str], positive_value_ratio: int
+        self,
+        input_messages: List[CotohaEmotionalScoreDto],
+        positive_value_ratio: int,
     ) -> List[MakeHappyMessageItem]:
         prompts = self.default_settings.copy()
         prompts["messages"].append(
@@ -38,7 +43,7 @@ class ChatGPT:
 - Remove malicious language.
 - Meet Humility, Respect, and Trust
 
-Input is stored as an array.
+input_message is the message to be converted and score is an emotional score ranging from 0 to 1. The closer the score is to 0, the more negative the message is. The closer the score is to 0, the more negative the message is.
 {input_messages}"""
                 + """
 Each element of this one should be converted according to the following format
@@ -61,11 +66,9 @@ Must be an array.
             )
 
             content = response.choices[0].message.content
-            print(f"レスポンス: {content}")
             # ```json から始まるコードブロックの削除。どうしても稀に稀にコードブロックが混じるため
             content = re.sub(r"```json", "", content)
             content = re.sub(r"```", "", content)
-            print(f"変換後: {content}")
             # jsonに変換
             response_dict: List[dict] = self._convert_json(content)
             return [MakeHappyMessageItem(**item) for item in response_dict]

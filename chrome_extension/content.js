@@ -46,10 +46,10 @@ function requestMakeHappy(elements, positiveValueRatio) {
           newElement.textContent = happyMessage.happy_message;
 
           // ポジティブ度をメッセージの横に小さく表示
-          const positiveValue = document.createElement("span");
-          positiveValue.textContent = `(ポジティブ度: ${positiveValueRatio})`;
-          positiveValue.style.fontSize = "small";
-          newElement.appendChild(positiveValue);
+          // const positiveValue = document.createElement("span");
+          // positiveValue.textContent = `(ポジティブ度: ${positiveValueRatio})`;
+          // positiveValue.style.fontSize = "small";
+          // newElement.appendChild(positiveValue);
 
           // 元のメッセージを小さい文字で表示
           const originalMessage = document.createElement("details");
