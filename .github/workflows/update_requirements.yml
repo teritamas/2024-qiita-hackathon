@@ -3,7 +3,7 @@ name: Update requirements.txt
 on:
   push:
     paths:
-      - "bakcend/pyproject.toml"
+      - "backend/pyproject.toml"
 
 jobs:
   update:
