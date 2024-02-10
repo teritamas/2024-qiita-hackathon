@@ -19,7 +19,7 @@ class ChatGPT:
                     "content": "You are the most optimistic person in the world. Your ideas can make people all over the world happy.",
                 },
             ],
-            "model": "gpt-4-vision-preview",
+            "model": "gpt-4-turbo-preview",
             "max_tokens": 2048,
         }
 
@@ -29,7 +29,8 @@ class ChatGPT:
             {
                 "role": "user",
                 "content": f"""
-Please convert the following Slack post message into a sentence that will make the reader happy.
+Please remove the malicious language in the following Slack post message and convert it into text that will make the reader happy.
+Do not change the meaning of the original input_message.
 
 The source sentences are passed as a list. For each sentence, please return it in the following format:
 {input_messages}
