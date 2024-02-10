@@ -94,7 +94,10 @@ function processMakeHappy(positiveValueRatio) {
     const chunk = Array.from(elements).slice(i, i + chunkSize);
     setTimeout(() => {
       requestMakeHappy(chunk, positiveValueRatio);
-      const messages = Array.from(chunk).map((element) => element.textContent);
+      const messages = Array.from(chunk).map((element) => {
+        element.classList.add("typing"); // "typing" クラスを追加
+        return element.textContent;
+    });
       console.debug("requestMakeHappy", messages);
       // デバッグ用
     }, i * 5000);
@@ -112,6 +115,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     // ここに実行したい関数を記述します
     processMakeHappy(positiveValueRatio);
     showLoader();
+    setTypingStyles();
   }
 });
 
@@ -127,10 +131,51 @@ function hideLoader() {
 
 // 初回読み込み時にローディング画面を設定
 addEventListener("load", function () {
-  setLoading();
+  setLoader();
 });
 
-function setLoading() {
+
+function setTypingStyles() {
+    // CSSスタイルを定義する文字列
+    var cssStyles = `
+    .typing {
+    width: 100%; /* 文字数分の長さに設定 */
+    animation: typing 2s steps(16), blink .5s step-end infinite alternate;
+    white-space: nowrap; /* 必須 */
+    overflow: hidden; /* 必須 */
+    border-right: 3px solid; /* カーソルの大きさを設定する */
+    }
+
+    @keyframes typing {
+    from {
+        width: 0; /* 行頭から開始 */
+    }
+    }
+        
+    @keyframes blink {
+    50% {
+        border-color: transparent; /* チカチカする表現部分 */
+    }
+    }
+    `;
+
+    // style要素を作成し、CSSスタイルを設定
+    var styleElement = document.createElement("style");
+    styleElement.textContent = cssStyles;
+
+    // body要素にstyle要素を追加
+    document.body.appendChild(styleElement);
+
+    // p要素を作成し、クラスを追加
+    var pElement = document.createElement("p");
+    pElement.textContent = "This is a typing animation test";
+    pElement.classList.add("typing");
+
+    // body要素にp要素を追加
+    document.body.appendChild(pElement);
+
+}
+function setLoader() {
   var style = document.createElement("style");
   style.innerHTML = `
         /* CSS styles */

@@ -20,6 +20,29 @@ body .button {
   justify-content: center;
 }
 
+.typing {
+    width: 100%;
+    animation: typing 2s steps(16), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0
+    }
+  }
+      
+  @keyframes blink {
+    50% {
+      border-color: transparent
+       /*// チカチカする表現部分*/
+    }
+  }
+ 
+ 
+
 /*//////////////////////////////////////////////////////////////////////////////////////////////*/
 input[type="range"] {
   -webkit-appearance: none;
