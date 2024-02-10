@@ -23,5 +23,8 @@
       "js": ["libs/jquery-3.7.1.min.js", "content.js"]
     }
   ],
-  "permissions": ["http://127.0.0.1:8000"]
+  "permissions": [
+    "http://127.0.0.1:8000",
+    "https://happy-world-api-ez5q3zuvrq-uc.a.run.app"
+  ]
 }

@@ -1,7 +1,7 @@
 const settings = {
   async: true,
   crossDomain: true,
-  url: "http://127.0.0.1:8000/make_happy",
+  url: "https://happy-world-api-ez5q3zuvrq-uc.a.run.app/make_happy",
   method: "POST",
   headers: {
     accept: "application/json",
