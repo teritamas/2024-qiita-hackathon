@@ -13,12 +13,13 @@ const settings = {
 /**
  * APIリクエストを送信し、ハッピーな文章に置き換える
  */
-function requestMakeHappy(elements) {
+function requestMakeHappy(elements, positiveValueRatio) {
   const messages = Array.from(elements).map((element) => element.textContent);
   $.ajax({
     ...settings,
     data: JSON.stringify({
       input_messages: messages,
+      positive_value_ratio: positiveValueRatio,
     }),
   })
     .done(function (response) {
@@ -34,6 +35,12 @@ function requestMakeHappy(elements) {
         if (happyMessage) {
           // その要素のテキストをhappyMessageのoutput_messageに変更
           element.textContent = happyMessage.happy_message;
+          // ポジティブ度をメッセージの横に小さく表示
+          const positiveValue = document.createElement("span");
+          positiveValue.textContent = `(ポジティブ度: ${positiveValueRatio})`;
+          positiveValue.style.fontSize = "small";
+          element.appendChild(positiveValue);
+
           // 元のメッセージを小さい文字で表示
           const originalMessage = document.createElement("details");
           const summary = document.createElement("summary");
@@ -55,14 +62,14 @@ function requestMakeHappy(elements) {
 /**
  * Slackのメッセージを取得し、ハッピーな文章に置き換える
  */
-function processMakeHappy() {
+function processMakeHappy(positiveValueRatio) {
   // 変更があった場合に一致する全ての要素に対してリクエストを行う
   const elements = document.querySelectorAll(".p-rich_text_section");
   if (elements.length === 0) return;
   console.log("変更対象:", elements.length, "件");
 
   // それぞれの要素のテキストを取得
-  const happyMessages = requestMakeHappy(elements);
+  const happyMessages = requestMakeHappy(elements, positiveValueRatio);
 }
 
 /**
@@ -71,8 +78,10 @@ function processMakeHappy() {
  */
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
   if (message.action === "executeFunction") {
+    // 数字に変換
+    const positiveValueRatio = parseFloat(message.positiveValueRatio);
     // ここに実行したい関数を記述します
-    processMakeHappy();
+    processMakeHappy(positiveValueRatio);
     showLoader();
   }
 });
@@ -86,6 +95,11 @@ function showLoader() {
 function hideLoader() {
   document.querySelector(".loader-box").style.display = "none";
 }
+
+// 初回読み込み時にローディング画面を設定
+addEventListener("load", function () {
+  setLoading();
+});
 
 function setLoading() {
   var style = document.createElement("style");

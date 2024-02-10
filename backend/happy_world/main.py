@@ -20,7 +20,7 @@ app.add_middleware(
 def post_make_happy(make_request: MakeHappyRequest):
     try:
         happy_messages: List[MakeHappyMessageItem] = chatGPT.make_happy(
-            make_request.input_messages
+            make_request.input_messages, make_request.positive_value_ratio
         )
         return MakeHappyResponse(results=happy_messages)
     except ConvertException as e:

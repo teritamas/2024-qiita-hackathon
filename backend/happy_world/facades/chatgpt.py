@@ -26,12 +26,15 @@ class ChatGPT:
             "max_tokens": 2048,
         }
 
-    def make_happy(self, input_messages: List[str]) -> {}:
+    def make_happy(
+        self, input_messages: List[str], positive_value_ratio: int
+    ) -> List[MakeHappyMessageItem]:
         prompts = self.default_settings.copy()
         prompts["messages"].append(
             {
                 "role": "user",
                 "content": f"""Please convert the following Slack post message to the following
+- If the maximum positivity is 100, convert the message to be positive by {positive_value_ratio}.
 - Remove malicious language.
 - Meet Humility, Respect, and Trust
 
