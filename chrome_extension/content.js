@@ -1,8 +1,8 @@
 const settings = {
   async: true,
   crossDomain: true,
-  // url: "https://happy-world-api-ez5q3zuvrq-uc.a.run.app/make_happy",
-  url: "http://127.0.0.1:8000/make_happy",
+  url: "https://happy-world-api-ez5q3zuvrq-uc.a.run.app/make_happy",
+  // url: "http://127.0.0.1:8000/make_happy",
   method: "POST",
   headers: {
     accept: "application/json",
@@ -14,7 +14,11 @@ const settings = {
  * APIリクエストを送信し、ハッピーな文章に置き換える
  */
 function requestMakeHappy(elements, positiveValueRatio) {
-  const messages = Array.from(elements).map((element) => element.textContent);
+  // テキストのみ取得
+  const messages = Array.from(elements).map((element) => {
+    // (変換待機中...)を削除
+    return element.textContent.replace(/\(変換待機中\.\.\.\)/g, "");
+  });
   $.ajax({
     ...settings,
     data: JSON.stringify({
@@ -24,31 +28,38 @@ function requestMakeHappy(elements, positiveValueRatio) {
   })
     .done(function (response) {
       const happyMessages = response.results;
+      const newElements = document.querySelectorAll(".p-rich_text_section");
 
       // 変更対象となるすべての要素に対して処理を行う
-      elements.forEach((element) => {
-        let currentValue = element.textContent;
+      newElements.forEach((newElement) => {
+        // (変換待機中...)を削除
+        let currentValue = newElement.textContent.replace(
+          /\(変換待機中\.\.\.\)/g,
+          ""
+        );
         // happyMessagesの各要素のうち、input_messageが同じものを取得
         const happyMessage = happyMessages.find(
           (happyMessage) => happyMessage.input_message === currentValue
         );
         if (happyMessage) {
           // その要素のテキストをhappyMessageのoutput_messageに変更
-          element.textContent = happyMessage.happy_message;
+          newElement.textContent = happyMessage.happy_message;
+
           // ポジティブ度をメッセージの横に小さく表示
           const positiveValue = document.createElement("span");
           positiveValue.textContent = `(ポジティブ度: ${positiveValueRatio})`;
           positiveValue.style.fontSize = "small";
-          element.appendChild(positiveValue);
+          newElement.appendChild(positiveValue);
 
           // 元のメッセージを小さい文字で表示
           const originalMessage = document.createElement("details");
           const summary = document.createElement("summary");
           summary.textContent = "元のメッセージを表示";
+
           originalMessage.textContent = currentValue;
           originalMessage.style.fontSize = "small";
           originalMessage.appendChild(summary);
-          element.appendChild(originalMessage);
+          newElement.appendChild(originalMessage);
         }
       });
       return happyMessages;
@@ -68,8 +79,26 @@ function processMakeHappy(positiveValueRatio) {
   if (elements.length === 0) return;
   console.log("変更対象:", elements.length, "件");
 
-  // それぞれの要素のテキストを取得
-  const happyMessages = requestMakeHappy(elements, positiveValueRatio);
+  //　すべてのメッセージの末尾に「変換中」を追加
+  elements.forEach((element) => {
+    const converting = document.createElement("span");
+    converting.textContent = "(変換待機中...)";
+    converting.style.fontSize = "small";
+    element.appendChild(converting);
+  });
+
+  // 2件ずつ5秒ごとにrequestMakeHappyリクエストを送信
+  const chunkSize = 2;
+  for (let i = 0; i < elements.length; i += chunkSize) {
+    // slice以外でchunk作成
+    const chunk = Array.from(elements).slice(i, i + chunkSize);
+    setTimeout(() => {
+      requestMakeHappy(chunk, positiveValueRatio);
+      const messages = Array.from(chunk).map((element) => element.textContent);
+      console.debug("requestMakeHappy", messages);
+      // デバッグ用
+    }, i * 5000);
+  }
 }
 
 /**
