@@ -1,7 +1,8 @@
 const settings = {
   async: true,
   crossDomain: true,
-  url: "https://happy-world-api-ez5q3zuvrq-uc.a.run.app/make_happy",
+  // url: "https://happy-world-api-ez5q3zuvrq-uc.a.run.app/make_happy",
+  url: "http://127.0.0.1:8000/make_happy",
   method: "POST",
   headers: {
     accept: "application/json",
@@ -37,10 +38,17 @@ function processMakeHappy() {
       const happyMessage = happyMessages.find(
         (happyMessage) => happyMessage.input_message === currentValue
       );
-      console.log(happyMessage);
       if (happyMessage) {
         // その要素のテキストをhappyMessageのoutput_messageに変更
         element.textContent = happyMessage.happy_message;
+        // 元のメッセージを小さい文字で表示
+        const originalMessage = document.createElement("details");
+        const summary = document.createElement("summary");
+        summary.textContent = "元のメッセージを表示";
+        originalMessage.textContent = currentValue;
+        originalMessage.style.fontSize = "small";
+        originalMessage.appendChild(summary);
+        element.appendChild(originalMessage);
       }
     });
   });
