@@ -1,11 +1,3 @@
-# 起動方法
+# backend
 
-```bash
-poetry install
-```
-
-起動方法
-
-```bash
-poetry run uvicorn happy_world.main:app --reload
-```
+起動方法などはルートの README.md を参照してください。
