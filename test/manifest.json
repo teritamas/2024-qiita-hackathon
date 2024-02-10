@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "Sample Project",
+    "name": "ポジティブジェネレーター",
     "version": "1.0",
-    "description": "動作確認用です",
+    "description": "Slack内のメッセージをポジティブな言葉に変換してくれる拡張機能です",
     "icons": {
       "16": "icon.png",
       "48": "icon.png",
@@ -17,6 +17,9 @@
       "default_title": "actionタイトルです",
       "default_popup": "popup.html"
    },
+   "permissions": [
+    "tabs"
+  ],
    "content_scripts": [
      {
        "matches": ["<all_urls>"],
