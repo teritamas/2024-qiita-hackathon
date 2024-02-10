@@ -22,8 +22,8 @@ class ChatGPT:
                     "content": "You are the most optimistic person in the world. Your ideas can make people all over the world happy.",
                 },
             ],
-            "model": "gpt-4",
-            "max_tokens": 2048,
+            "model": "gpt-4-turbo-preview",
+            "max_tokens": 4096,
         }
 
     def make_happy(
@@ -47,7 +47,6 @@ A subject consists of a input_message and a happy_message in the following forma
   "input_message": "input_message. never change.",
   "happy_message": "Converted message. About the same length as the input_message text."
 },]
-
 Delete code blocks.
 Delete information other than JSON.
 Value is natural Japanese as Japanese would return it.
