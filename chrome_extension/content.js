@@ -96,6 +96,11 @@ function hideLoader() {
   document.querySelector(".loader-box").style.display = "none";
 }
 
+// 初回読み込み時にローディング画面を設定
+addEventListener("load", function () {
+  setLoading();
+});
+
 function setLoading() {
   var style = document.createElement("style");
   style.innerHTML = `
