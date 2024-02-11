@@ -2,7 +2,6 @@ h1 {
   text-align: center;
   font-family: "Darumadrop One", sans-serif;
   color: #aea9f8;
-  /*color: #ed646d;*/
   font-size: 3rem;
 }
 body {
@@ -18,6 +17,14 @@ body .button {
 .d-center {
   display: flex;
   justify-content: center;
+}
+
+.center {
+    text-align: center;
+}
+
+.large {
+    font-size: large;
 }
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////*/
