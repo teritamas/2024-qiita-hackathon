@@ -7,7 +7,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1>ポジティブジェネレーター</h1>
+        <h1 class="mb-0">ポジティブジェネレーター</h1>
+        <p class="center large mt-1 mb-0">ポジティブ度Max！🎉</p>
         <div class="range" data-value="100">
             <div class="label">
                 <div class="positive-value-ratio">100</div>
@@ -17,10 +18,24 @@
                 <input id="input-range" type="range" min="0" max="100" value="100" step="50"/>
                 <div class="bar"></div>
             </div>
-            <p class="center large">ポジティブ度Max！🎉</p>
         </div>
         <div class="d-center">
-            <button class="button" id="myButton">change</button>
+            <button class="button mb-1" id="changeButton">トークを変換</button>
+        </div>
+        <p class="center large mt-2 mb-0">ポジティブチェッカー✅</p>
+        <small class="d-block center">送信前に、投稿内容をチェックしよう！</small>
+        <div class="mt-1 mb-0">
+            <div class="cp_iptxt" style="display: none;" id="checkButtonInputBox">
+                <span class="text-red bold">Before</span><textarea type="text" id="inputMessage"></textarea>
+            </div>
+            <div class="cp_iptxt" style="display: none;" id="happyButtonInputBox">
+                <span class="text-blue bold">After</span>
+                <input type="text" id="happyMessagesInput" class="typing" value="準備中...">
+                <textarea type="text" id="happyMessages" style="display: none;"></textarea>
+            </div>
+            <div class="d-center">
+                <button class="button mt-1 mb-0" id="checkButton">投稿内容をチェック</button>
+            </div>
         </div>
         <script src="popup.js" defer></script>
     </body>

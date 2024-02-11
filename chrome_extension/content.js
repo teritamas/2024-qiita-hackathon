@@ -74,6 +74,27 @@ function requestMakeHappy(elements, positiveValueRatio) {
 }
 
 /**
+ * チェックボタン
+ * Slackのメッセージを取得し、ハッピーな文章に置き換える
+ */
+function processCheckHappy() {
+    // 変更があった場合に一致する全ての要素に対してリクエストを行う
+    const elements = document.querySelectorAll('.ql-editor > p');
+    if (elements.length === 0) return;
+    console.log("送信対象:", elements.length, "件");
+
+    let input_text = "";
+    // 各 p タグのテキスト値を出力
+    elements.forEach(function(element) {
+        input_text = element.textContent
+        console.log(element.textContent);
+    });
+
+    return input_text;
+}
+
+/**
+ * changeボタン
  * Slackのメッセージを取得し、ハッピーな文章に置き換える
  */
 function processMakeHappy(positiveValueRatio) {
@@ -107,11 +128,14 @@ function processMakeHappy(positiveValueRatio) {
 }
 
 /**
- * ボタンが押されたら
- * Slackのメッセージを取得し、ハッピーな文章に置き換える
+ * popup.htmlのボタンが押されたときの処理
  */
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-  if (message.action === "executeFunction") {
+    /**
+     * changeボタンが押されたら
+     * Slackのメッセージを取得し、ハッピーな文章に置き換える
+     */
+  if (message.action === "changeFunction") {
     // 数字に変換
     const positiveValueRatio = parseFloat(message.positiveValueRatio);
     // ここに実行したい関数を記述します
@@ -119,7 +143,43 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     showLoader();
     setTypingStyles();
   }
-});
+
+    /**
+     * checkボタンが押されたら
+     * Slackのメッセージを取得し、ハッピーな文章に置き換える
+     */
+  if (message.action === "checkFunction") {
+    // 数字に変換
+    const positiveValueRatio = parseFloat(message.positiveValueRatio);
+    // ここに実行したい関数を記述します
+    const input_message = processCheckHappy(positiveValueRatio);
+    const happyMessages = '';
+    sendResponse({
+        'input_message': input_message,
+        }
+    );
+    setTimeout(() => {
+        $.ajax({
+            ...settings,
+            data: JSON.stringify({
+              input_messages: [input_message],
+              positive_value_ratio: positiveValueRatio,
+            }),
+          })
+            .done(function (response) {
+                chrome.runtime.sendMessage({ message: "from_contents", 'happyMessages': response.results[0].happy_message,}, function (res) {
+                    console.log("送信");
+                  });
+            })
+            .fail((jqXHR, textStatus, errorThrown) => {
+              console.log("fail", jqXHR.status);
+              chrome.runtime.sendMessage({ message: "from_contents", 'happyMessages': '失敗しちゃった😢'}, function (res) {
+                console.log("送信");
+              });
+            })
+      }, 10000);
+}});
+
 
 // Function to show loader
 function showLoader() {

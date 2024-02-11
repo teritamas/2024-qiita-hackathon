@@ -23,10 +23,88 @@ body .button {
     text-align: center;
 }
 
+.d-block {
+    display: block;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+
+}
+
+.text-red {
+    color: red;
+}
+
+.text-blue {
+    color: blue;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
 .large {
     font-size: large;
 }
 
+/*//////////////////////////////////////////////////*/
+.typing {
+    width: 4ch;
+    display: block;
+    animation: typing 2s steps(16) infinite;
+    white-space: nowrap; /* 必須 */
+    overflow: hidden; /* 必須 */
+    }
+
+    @keyframes typing {
+    from {
+        width: 0; /* 行頭から開始 */
+    }
+    }
+
+/*///////////////////////////////////////////////////////////////////////////*/
+
+.cp_iptxt {
+	position: relative;
+    margin: 10px 3%;
+}
+.cp_iptxt input[type='text'], textarea[type='text'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.3em;
+	letter-spacing: 1px;
+	border: 0;
+}
+.cp_iptxt input[type='text']:focus, [type='text']:focus {
+	outline: none;
+}
+.cp_iptxt input[type='text']:focus::after, textarea[type='text']:focus::after {
+	outline: none;
+}
+.cp_iptxt::after {
+	display: block;
+	width: 100%;
+	height: 4px;
+	margin-top: -1px;
+	content: '';
+	border-width: 0 1px 1px 1px;
+	border-style: solid;
+	border-color: #313131;
+}
 /*//////////////////////////////////////////////////////////////////////////////////////////////*/
 input[type="range"] {
   -webkit-appearance: none;
