@@ -13,6 +13,10 @@
 
 - [ポジティブジェネレーター(Canva スライドへのリンク)](https://www.canva.com/design/DAF8ZOD03fU/QH3mN1B03IUZFDjM36NLeQ/view?utm_content=DAF8ZOD03fU&utm_campaign=designshare&utm_medium=link&utm_source=editor)
 
+操作方法は以下のYoutube動画を確認ください
+
+- [【2024 Qiita Hackathon】ポジティブジェネレーター_デモ動画](https://www.youtube.com/watch?v=YlafT6ohlSI)
+
 ## 全体構成
 
 全体構成は以下の通りです。
