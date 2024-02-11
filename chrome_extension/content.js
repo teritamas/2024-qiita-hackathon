@@ -44,22 +44,25 @@ function requestMakeHappy(elements, positiveValueRatio) {
         if (happyMessage) {
           // その要素のテキストをhappyMessageのoutput_messageに変更
           newElement.textContent = happyMessage.happy_message;
+          newElement.classList.add("typing"); // "typing" クラスを追加
+          setTimeout(function(){
+            // 元のメッセージを小さい文字で表示
+            const originalMessage = document.createElement("details");
+            const summary = document.createElement("summary");
+            summary.textContent = "元のメッセージを表示";
+
+            originalMessage.textContent = currentValue;
+            originalMessage.style.fontSize = "small";
+            originalMessage.appendChild(summary);
+            originalMessage.classList.add("typing"); // "typing" クラスを追加
+            newElement.appendChild(originalMessage);
+        },3000);
 
           // ポジティブ度をメッセージの横に小さく表示
           // const positiveValue = document.createElement("span");
           // positiveValue.textContent = `(ポジティブ度: ${positiveValueRatio})`;
           // positiveValue.style.fontSize = "small";
           // newElement.appendChild(positiveValue);
-
-          // 元のメッセージを小さい文字で表示
-          const originalMessage = document.createElement("details");
-          const summary = document.createElement("summary");
-          summary.textContent = "元のメッセージを表示";
-
-          originalMessage.textContent = currentValue;
-          originalMessage.style.fontSize = "small";
-          originalMessage.appendChild(summary);
-          newElement.appendChild(originalMessage);
         }
       });
       return happyMessages;
@@ -95,7 +98,6 @@ function processMakeHappy(positiveValueRatio) {
     setTimeout(() => {
       requestMakeHappy(chunk, positiveValueRatio);
       const messages = Array.from(chunk).map((element) => {
-        element.classList.add("typing"); // "typing" クラスを追加
         return element.textContent;
     });
       console.debug("requestMakeHappy", messages);
@@ -140,21 +142,14 @@ function setTypingStyles() {
     var cssStyles = `
     .typing {
     width: 100%; /* 文字数分の長さに設定 */
-    animation: typing 2s steps(16), blink .5s step-end infinite alternate;
+    animation: typing 2s steps(16);
     white-space: nowrap; /* 必須 */
     overflow: hidden; /* 必須 */
-    border-right: 3px solid; /* カーソルの大きさを設定する */
     }
 
     @keyframes typing {
     from {
         width: 0; /* 行頭から開始 */
-    }
-    }
-        
-    @keyframes blink {
-    50% {
-        border-color: transparent; /* チカチカする表現部分 */
     }
     }
     `;
@@ -165,15 +160,6 @@ function setTypingStyles() {
 
     // body要素にstyle要素を追加
     document.body.appendChild(styleElement);
-
-    // p要素を作成し、クラスを追加
-    var pElement = document.createElement("p");
-    pElement.textContent = "This is a typing animation test";
-    pElement.classList.add("typing");
-
-    // body要素にp要素を追加
-    document.body.appendChild(pElement);
-
 }
 function setLoader() {
   var style = document.createElement("style");

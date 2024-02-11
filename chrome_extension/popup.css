@@ -2,7 +2,6 @@ h1 {
   text-align: center;
   font-family: "Darumadrop One", sans-serif;
   color: #aea9f8;
-  /*color: #ed646d;*/
   font-size: 3rem;
 }
 body {
@@ -20,28 +19,13 @@ body .button {
   justify-content: center;
 }
 
-.typing {
-    width: 100%;
-    animation: typing 2s steps(16), blink .5s step-end infinite alternate;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid;
-  }
-  
-  @keyframes typing {
-    from {
-      width: 0
-    }
-  }
-      
-  @keyframes blink {
-    50% {
-      border-color: transparent
-       /*// チカチカする表現部分*/
-    }
-  }
- 
- 
+.center {
+    text-align: center;
+}
+
+.large {
+    font-size: large;
+}
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////*/
 input[type="range"] {
